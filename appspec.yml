@@ -2,7 +2,12 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/shusurvey
+    destination: /home/ec2-user/shusurvey/
+permissions:
+  - object: /home/ec2-user/shusurvey/
+    owner: root
+    group: root
+    mode: 777
 hooks:
   AfterInstall:
     - location: src/scripts/install_dependencies.sh
