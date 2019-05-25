@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo python login.py
+sudo python /home/ec2-user/shusurvey/login.py
