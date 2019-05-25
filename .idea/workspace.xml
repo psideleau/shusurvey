@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8787c0fb-20c0-4033-975b-62a78b21d7fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/login.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+            <state relative-caret-position="452">
+              <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -226,7 +227,7 @@
       <workItem from="1556930787302" duration="391000" />
       <workItem from="1558744577085" duration="5215000" />
       <workItem from="1558795566994" duration="3709000" />
-      <workItem from="1558803473023" duration="5791000" />
+      <workItem from="1558803473023" duration="6838000" />
     </task>
     <task id="LOCAL-00001" summary="Adding dependencies">
       <created>1558748400768</created>
@@ -459,11 +460,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558809190227</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="update bash scripts">
+      <created>1558809625014</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1558809625014</updated>
+    </task>
+    <task id="LOCAL-00035" summary="update login.py">
+      <created>1558809816393</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1558809816393</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15106000" />
+    <option name="totallyTimeSpent" value="16153000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1273" y="0" width="1294" height="1047" extended-state="0" />
@@ -505,7 +520,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;Login/login.py&#10;#&#9;src/Login/login.py&#10;#&#9;src/login.py" />
     <MESSAGE value="Update appspec.yml" />
     <MESSAGE value="update bash scripts" />
-    <option name="LAST_COMMIT_MESSAGE" value="update bash scripts" />
+    <MESSAGE value="update login.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="update login.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shusurvey$login.coverage" NAME="login Coverage Results" MODIFIED="1556930994454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Login" />
@@ -580,8 +596,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+        <state relative-caret-position="452">
+          <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
         </state>
       </provider>
     </entry>
