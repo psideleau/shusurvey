@@ -1,3 +1,2 @@
 # shusurvey
-test
 yet test
