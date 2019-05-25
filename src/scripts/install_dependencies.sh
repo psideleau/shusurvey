@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 easy_install pip
-sudo python3 pip install --upgrade pip
-sudo python3 pip install -r requirements.txt
+sudo pip install --upgrade pip
+sudo pip install -r /home/ec2-user/shusurvey/requirements.txt
