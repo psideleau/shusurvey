@@ -5,10 +5,10 @@ files:
     destination: /home/ec2-user/shusurvey
 hooks:
   BeforeInstall:
-    - location: /home/ec2-user/shusurvey/scripts/install_dependencies.sh
-      timeout: 300
+    - location: scripts/install_dependencies.sh
+      timeout: 2300
       runas: root
   AfterInstall:
-    - location: /home/ec2-user/shusurvey/scripts/start_application.sh
-      timeout: 300
+    - location: scripts/start_application.sh
+      timeout: 2300
       runas: root
