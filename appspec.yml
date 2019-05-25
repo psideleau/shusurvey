@@ -4,11 +4,11 @@ files:
   - source: /
     destination: /home/ec2-user/shusurvey
 hooks:
-  BeforeInstall:
+  AfterInstall:
     - location: src/scripts/install_dependencies.sh
       timeout: 2300
       runas: root
-  AfterInstall:
+  ApplicationStart:
     - location: src/scripts/start_application.sh
       timeout: 2300
       runas: root
