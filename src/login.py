@@ -1,5 +1,5 @@
 from flask import Flask, Response, redirect, url_for, request, session, abort
-from flask.ext.login import LoginManager, UserMixin, \
+from flask_login import LoginManager, UserMixin, \
                                 login_required, login_user, logout_user 
 
 app = Flask(__name__)
@@ -83,5 +83,5 @@ def load_user(userid):
     
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=int("80"))
+    app.run(debug=True, host='0.0.0.0', port=int'8080')
 
