@@ -4,7 +4,7 @@ from flask.ext.login import LoginManager, UserMixin, \
 
 app = Flask(__name__)
 
-# config
+# configuration
 app.config.update(
     DEBUG = True,
     SECRET_KEY = 'secret_xxx'
