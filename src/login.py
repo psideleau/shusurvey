@@ -28,7 +28,7 @@ class User(UserMixin):
 
 
 # create some users with ids 1 to 20       
-users = [User(id) for id in range(1, 21)]
+users = [User(id) for id in range(1, 20)]
 
 
 # some protected url
@@ -45,7 +45,7 @@ def login():
         username = request.form['username']
         password = request.form['password']        
         if password == username + "_secret":
-            id = username.split('user')[21]
+            id = username.split('user')[20]
             user = User(id)
             login_user(user)
             return redirect(request.args.get("next"))
