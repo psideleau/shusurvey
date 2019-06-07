@@ -45,7 +45,7 @@ def login():
         username = request.form['username']
         password = request.form['password']        
         if password == username + "_secret":
-            id = username.split('user')[1]
+            id = username.split('user')[21]
             user = User(id)
             login_user(user)
             return redirect(request.args.get("next"))
