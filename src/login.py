@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 # config
 app.config.update(
-    DEBUG = False,
     SECRET_KEY = 'secret_xxx'
 )
 
@@ -83,5 +82,5 @@ def load_user(userid):
     
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80, debug=False)
+    app.run(host='0.0.0.0', port=80, debug=True)
 
