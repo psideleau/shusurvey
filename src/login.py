@@ -1,3 +1,5 @@
+import random
+
 from flask import Flask, request, abort, redirect, Response, url_for
 from flask_login import LoginManager, login_required, UserMixin, login_user
 import questions as q
@@ -51,28 +53,33 @@ class UsersRepository:
 users_repository = UsersRepository()
 
 
-@app.route('/submit')
+@app.route('/submit', methods=['GET', 'POST'])
 @login_required
 def submit():
-    return "Hello"
+    choice = request.args.get('choice')
+    if not choice:
+        return 'You failed to pick anything.... -_-'
+
+    return 'You chose {}'.format(choice)
 
 
 @app.route('/')
-@app.route('/hello')
 def index():
     return "<h2>Hello PAUL</h2>"
 
 @app.route('/home')
+@login_required
 def home():
-    htmL = """
+    question = random.choice(q.questions)
+    
+    htmL = '''
     <form action =/submit>
-<div> "what is your favorite course"<div>
-        input type = "radio button" name "question" value 0
-    <input type "radio" name = "question" value 1 """
+        <div>
+            {}
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </form>'''.format(question.ask())
 
-    htmL = htmL + "questions"
-    for q2 in q.questions:
-        htmL = htmL + q2.prompt + "<br>"
     return htmL
 
 
