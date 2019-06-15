@@ -1,5 +1,6 @@
-from flask import Flask , request , abort , redirect , Response ,url_for
-from flask_login import LoginManager , login_required , UserMixin , login_user
+from flask import Flask, request, abort, redirect, Response, url_for
+from flask_login import LoginManager, login_required, UserMixin, login_user
+import questions as q
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
@@ -7,8 +8,9 @@ login_manager = LoginManager()
 login_manager.login_view = "login"
 login_manager.init_app(app)
 
+
 class User(UserMixin):
-    def __init__(self , username , password , id , active=True):
+    def __init__(self, username, password, id, active=True):
         self.id = id
         self.username = username
         self.password = password
@@ -21,7 +23,8 @@ class User(UserMixin):
         return self.active
 
     def get_auth_token(self):
-        return make_secure_token(self.username , key='secret_key')
+        return make_secure_token(self.username, key='secret_key')
+
 
 class UsersRepository:
 
@@ -29,40 +32,57 @@ class UsersRepository:
         self.users = dict()
         self.users_id_dict = dict()
         self.identifier = 0
-    
+
     def save_user(self, user):
         self.users_id_dict.setdefault(user.id, user)
         self.users.setdefault(user.username, user)
-    
+
     def get_user(self, username):
         return self.users.get(username)
-    
+
     def get_user_by_id(self, userid):
         return self.users_id_dict.get(userid)
-    
+
     def next_index(self):
-        self.identifier +=1
+        self.identifier += 1
         return self.identifier
 
+
 users_repository = UsersRepository()
+
+
+@app.route('/submit')
+@login_required
+def submit():
+    return "Hello"
+
 
 @app.route('/')
 @app.route('/hello')
 def index():
-    return "<h2>Hello World</h2>"
+    return "<h2>Hello PAUL</h2>"
 
 @app.route('/home')
-@login_required
 def home():
-    return "<h1>User Home</h1>"
+    htmL = """
+    <form action =/submit>
+<div> "what is your favorite course"<div>
+        input type = "radio button" name "question" value 0
+    <input type "radio" name = "question" value 1 """
 
-@app.route('/login' , methods=['GET' , 'POST'])
+    htmL = htmL + "questions"
+    for q2 in q.questions:
+        htmL = htmL + q2.prompt + "<br>"
+    return htmL
+
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         registeredUser = users_repository.get_user(username)
-        print('Users '+ str(users_repository.users))
+        print('Users ' + str(users_repository.users))
         print('Register user %s , password %s' % (registeredUser.username, registeredUser.password))
         if registeredUser != None and registeredUser.password == password:
             print('Logged in..')
@@ -79,12 +99,13 @@ def login():
             </form>
         ''')
 
-@app.route('/register' , methods = ['GET' , 'POST'])
+
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        new_user = User(username , password , users_repository.next_index())
+        new_user = User(username, password, users_repository.next_index())
         users_repository.save_user(new_user)
         return Response("Registered Successfully")
     else:
@@ -96,16 +117,18 @@ def register():
             </form>
         ''')
 
+
 # handle login failed
 @app.errorhandler(401)
 def page_not_found(e):
     return Response('<p>Login failed</p>')
 
-# callback to reload the user object        
+
+# callback to reload the user object
 @login_manager.user_loader
 def load_user(userid):
     return users_repository.get_user_by_id(userid)
- 
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=False)
-
