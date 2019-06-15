@@ -1,3 +1,4 @@
+from Question import answer 
 import Crypto
 from Crypto.PublicKey import RSA
 from Crypto import Random
@@ -7,11 +8,9 @@ key = RSA.generate(1024, random_generator) #generate public and private key
 pubkey = key.publickey() # pub key export for exchange
 
 print ("\n")
-# waitting for the result to be insert here 
-X= raw_input(" Enter the string that you want to Encrypt =  ")
 
 #Encrypt the string provided  and print the encrypted value  
-encrypted = pubkey.encrypt( X , 32)
+encrypted = pubkey.encrypt( answer  , 32)
 print ("\n The Encrypted Value : ") , encrypted #ciphertext
 
 #write the Encrypted string in file 
@@ -24,21 +23,23 @@ readfile = open('encryption.txt', 'r')
 message = readfile.read()
 
 print ("\n")
+#asking the admin if he wants to the answers to be revealed 
+R_S = raw_input("Do you want the answer to be revealed (yes / no)?   ")
+if R_S == "yes":
+    #print the answers message 
+    decrypted = key.decrypt(ast.literal_eval(str(encrypted)))
+    
+    print (" The Decrypted Value  : "), decrypted
+else:
+    print ("\t End of the program ")
 
-#Decrypt the the encrypted value and print the decrypted value 
-decrypted = key.decrypt(ast.literal_eval(str(encrypted)))
-#ast.literal_eval was used used for safely evaluating strings
-#containing Python values from untrusted source
-#without the need to parse the values oneself
-print (" The Decrypted Value  : "), decrypted
 
-#write the decrypted string in file 
+#the answers will be in the text file 
+#write the decrypted answers in test file 
 writefile=open('decrypted.txt','w')
 writefile.write(decrypted)
 writefile.close()
 
-#end of progam 
-print ("\n End of program ")
 
 
 
