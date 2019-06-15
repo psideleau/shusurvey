@@ -29,7 +29,7 @@ if R_S == "yes":
     #print the answers message 
     decrypted = key.decrypt(ast.literal_eval(str(encrypted)))
     
-    print (" The Decrypted Value  : "), decrypted
+    print (" The Decrypted answers  : "), decrypted
 else:
     print ("\t End of the program ")
 
